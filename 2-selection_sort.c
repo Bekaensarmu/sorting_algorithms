@@ -17,29 +17,29 @@ void swap_ints(int *bek, int *len)
 /**
  * selection_sort - Sort an array of integers in ascending order
  *                  using the selection sort algorithm.
- * @bek_array: An array of integers.
- * @bek_size: The size of the array.
+ * @array: An array of integers.
+ * @size: The size of the array.
  *
  * Description: Prints the array after each swap.
  */
-void selection_sort(int *bek_array, size_t bek_size)
+void selection_sort(int *array, size_t size)
 {
-	int *bek_min;
+	int *min;
 	size_t i, j;
 
-	if (bek_array == NULL || bek_size < 2)
+	if (array == NULL || size < 2)
 		return;
 
-	for (i = 0; i < bek_size - 1; i++)
+	for (i = 0; i < size - 1; i++)
 	{
-		bek_min = array + i;
+		min = array + i;
 		for (j = i + 1; j < size; j++)
-			bek_min = (bek_array[j] < *bek_min) ? (bek_array + j) : bek_min;
+			min = (array[j] < *min) ? (array + j) : min;
 
-		if ((bek_array + i) != bek_min)
+		if ((array + i) != min)
 		{
-			swap_ints(bek_array + i, bek_min);
-			print_array(bek_array, bek_size);
+			swap_ints(array + i, min);
+			print_array(array, size);
 		}
 	}
 }
