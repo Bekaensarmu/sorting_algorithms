@@ -1,57 +1,25 @@
 #include "sort.h"
-
 /**
- * bubble_sort - sorts an array of integers in ascending order using a bubble
- * sort algorithm
- * @array: array of integers to be sorted
- * @size: amount of elements in array
+ * bubble_sort - sort array lements from min to max value
+ * @array: array
+ * @bek: array size
  */
+void bubble_sort(int *array, size_t bek)
+{
 
-void swap(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+	size_t i, index, tmp = 0;
 
-void bubble_sort(int *array, size_t size) {
-    int swapped;
-    for (size_t i = 0; i < size - 1; i++) {
-        swapped = 0;
-        for (size_t j = 0; j < size - i - 1; j++) {
-            if (array[j] > array[j + 1]) {
-                swap(&array[j], &array[j + 1]);
-                swapped = 1;
-            }
-        }
-        printf("Pass %zu: ", i + 1);
-        for (size_t k = 0; k < size; k++) {
-            printf("%d ", array[k]);
-        }
-        printf("\n");
-
-        if (swapped == 0) {
-            break;
-        }
-    }
-}
-
-int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    size_t size = sizeof(arr) / sizeof(arr[0]);
-    
-    printf("Original array: ");
-    for (size_t i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-    
-    bubble_sort(arr, size);
-    
-    printf("Sorted array: ");
-    for (size_t i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-
-    return 0;
+	if (bek < 2)
+		return;
+	for (i = 0; i < bek; i++)
+		for (index = 0; index < bek; index++)
+		{
+			if (array[index] > array[index + 1] && array[index + 1])
+			{
+			tmp = array[index];
+			array[index] = array[index + 1];
+			array[index + 1] = tmp;
+			print_array(array, bek);
+			}
+		}
 }
